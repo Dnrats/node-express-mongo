@@ -9,10 +9,16 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
     res.status(201);
+    next();
 })
 
 app.use((req, res, next) => {
     res.json({message: 'Your request was successful!'});
+    next();
+});
+
+app.use((req, res, next) => {
+    console.log('Response sent successfully!');
 });
 
 module.exports = app;
